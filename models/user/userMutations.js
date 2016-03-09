@@ -28,14 +28,6 @@ export default {
         type: new GraphQLNonNull(GraphQLString)
       }
     },
-    resolve: (root, {name, email, tel}) => {
-      var newUser = new user({name:name, email:email, tel:tel});
-
-      return new Promise((resolve, reject) => {
-        newUser.save((err, res) => {
-          err ? reject(err): resolve(res);
-        });
-      });
-    }
+    resolve: user.addUser
   }
 };
