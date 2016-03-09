@@ -71,7 +71,7 @@ query {
 ```js
 query {
   users {
-    _id,
+    id,
     name,
     email
   }
@@ -84,7 +84,7 @@ Set up our mutations to save / update with resolvers in our Mongoose Schema
 ```js
 mutation {
   addUser( name:"Jeff Beck", email:"jeff@beck.net", tel:"0800") {
-    _id,
+    id,
     name,
     email,
     tel
@@ -96,7 +96,7 @@ mutation {
 ```js
 mutation {
   updateUser(id:"56e0919c2c4670ed23fe4a28", name:"Jeff Beck", email:"jeff@beck.net", tel:"0800 234 231") {
-    _id
+    id
   }
 }
 ```
