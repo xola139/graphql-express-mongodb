@@ -24,7 +24,10 @@ let RootQuery = new GraphQLObjectType({
   name: 'Query',
   description: 'Realize Root Query',
   fields: () => ({
-    user: userQueries.user
+    user: userQueries.user,
+    users: userQueries.users,
+    userId: userQueries.userId,
+    userByName: userQueries.userByName
   })
 })
 
@@ -33,7 +36,8 @@ let RootMutation = new GraphQLObjectType({
   name: 'Mutation',
   description: 'Realize Root Mutations',
   fields: () => ({
-    addUser: userMutations.addUser
+    addUser: userMutations.addUser,
+    updateUser: userMutations.updateUser
   })
 })
 

@@ -29,5 +29,26 @@ export default {
       }
     },
     resolve: user.addUser
+  },
+  updateUser:{
+    type:userType,
+    args: {
+      id:{
+        type: GraphQLID
+      },
+      name:{
+        name:'name',
+        type:new GraphQLNonNull(GraphQLString)
+      },
+      email:{
+        name:'email',
+        type: new GraphQLNonNull(GraphQLString)
+      },
+      tel: {
+        name:'tel',
+        type: new GraphQLNonNull(GraphQLString)
+      }
+    },
+    resolve: user.updateUser
   }
 };

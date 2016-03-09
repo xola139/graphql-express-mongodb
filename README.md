@@ -56,7 +56,7 @@ You can run these queries / mutations within GraphiQL, alternatively you can run
 Find the first user in the MongoDB, requesting just the name and email address
 ```js
 query {
-  user(id: "1") {
+  userId(id:"56e0582a07be7df61583d9a4") {
     name,
     email
   }
@@ -65,7 +65,11 @@ query {
 #### Show all users
 ```js
 query {
-
+  users {
+    _id,
+    name,
+    email
+  }
 }
 ```
 ### GraphQL Mutations
@@ -74,7 +78,8 @@ Set up our mutations to save / update with resolvers in our Mongoose Schema
 #### Create a user
 ```js
 mutation {
-  addUser( name:"Test User", email:"test@test.net", tel:"0191 213 3343") {
+  addUser( name:"Jeff Beck", email:"jeff@beck.net", tel:"0800") {
+    _id,
     name,
     email,
     tel
@@ -85,14 +90,13 @@ mutation {
 #### Update a user
 ```js
 mutation {
-
+  updateUser(id:"56e0919c2c4670ed23fe4a28", name:"Jeff Beck", email:"jeff@beck.net", tel:"0800 234 231") {
+    _id
+  }
 }
 ```
 
 # ToDo
-* Use body parser to check content type
-* Create update user mutation
-* Create find all user query
 * Postman Images
 * GraphiQL Images
 * Create gif of the whole flow split screen

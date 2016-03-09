@@ -24,5 +24,23 @@ export default {
       }
     },
     resolve: user.getUserByPosition
+  },
+  userId: {
+    type: userType,
+    args: {
+      id: {
+        type: GraphQLID
+      }
+    },
+    resolve: user.getUserById
+  },
+  userByName: {
+    type: userType,
+    args: {
+      name: {
+        type: GraphQLString
+      }
+    },
+    resolve: user.getUserByName
   }
 };
