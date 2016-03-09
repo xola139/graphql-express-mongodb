@@ -2,7 +2,12 @@
 
 > A small project to illustrate using GraphQL with MongoDB in Express as simply as possible
 
-Whilst trying to learn GraphQL I found a number of resources but they all complicated the process. This repo is intentionally as simple as possible.
+__Project Goals__:
+* Create a GraphQL + MongoDB + Express project that is as simple as possible
+* GraphiQL Integration to send Queries / Mutations
+* Ability to use Postman or other REST Client to POST GraphQL Queries / Mutations
+* Use of ES6 (but minimally)
+* Full Create, Update and Query from GraphQL to MongoDB
 
 ## ES6
 This project makes use of ES6 which requires a 4+ version of Node https://nodejs.org/en/download/
