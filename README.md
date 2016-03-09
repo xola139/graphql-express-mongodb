@@ -49,18 +49,50 @@ We also set up some resolvers for GraphQL to work with to get data from our Mong
 ### GraphQL Queries
 Set up queries to work with our resolvers in the Mongoose Schema
 
+## Doing stuff
+You can run these queries / mutations within GraphiQL, alternatively you can run them within a tool such as Postman. To do so ensure you POST the query / mutation in the body and set the content-type to GraphQL.
+
 #### Find a user
-
+Find the first user in the MongoDB, requesting just the name and email address
+```js
+query {
+  user(id: "1") {
+    name,
+    email
+  }
+}
+```
 #### Show all users
+```js
+query {
 
+}
+```
 ### GraphQL Mutations
 Set up our mutations to save / update with resolvers in our Mongoose Schema
 
 #### Create a user
+```js
+mutation {
+  addUser( name:"Test User", email:"test@test.net", tel:"0191 213 3343") {
+    name,
+    email,
+    tel
+  }
+}
+```
 
 #### Update a user
+```js
+mutation {
 
+}
+```
 
 # ToDo
-* Great gif of the whole flow split screen
-* Mutation resolver needs to go into the schema
+* Use body parser to check content type
+* Create update user mutation
+* Create find all user query
+* Postman Images
+* GraphiQL Images
+* Create gif of the whole flow split screen
