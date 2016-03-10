@@ -46,7 +46,7 @@ npm install
 npm start
 ```
 
-![CLI Commands](/ReadMe/runtheapp.gif?raw=true)
+![CLI Commands](https://raw.githubusercontent.com/applification/graphql-express-mongodb/master/readme/runtheapp.gif)
 
 ## Running GraphQL Mutations & Queries
 You can run these queries / mutations within GraphiQL, alternatively you can run them within a tool such as Postman. To do so ensure you POST the query / mutation in the body and set the content-type to GraphQL.
