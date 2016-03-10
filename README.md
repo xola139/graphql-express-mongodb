@@ -2,17 +2,19 @@
 
 > A small project to illustrate using GraphQL with MongoDB in Express as simply as possible
 
-__Project Goals__:
-* Create a GraphQL + MongoDB + Express project that is as simple as possible
-* GraphiQL Integration to send Queries / Mutations
-* Ability to use Postman or other REST Client to POST GraphQL Queries / Mutations
-* Use of ES6 (but minimally)
+#### Project Goals:
+* Create a GraphQL + MongoDB + Express project that is as __simple as possible__
+* __GraphiQL Integration__ to send Queries / Mutations
+* Ability to use __Postman or other REST Client__ to POST GraphQL Queries / Mutations
+* Use of __ES6__ (but minimally)
 * Full Create, Update and Query from GraphQL to MongoDB
 
-## ES6
+## Installation
+
+#### ES6 / Node V4+
 This project makes use of ES6 which requires a 4+ version of Node https://nodejs.org/en/download/
 
-## MongoDB
+#### MongoDB
 In order to run this project you need to install MongoDB and ensure an instance is running.
 https://www.npmjs.com/package/mongodb
 
@@ -21,8 +23,10 @@ npm install mongodb --save
 mongod
 ```
 
-## NPM Modules
-The following NPM modules are required:
+To see the data you are saving you can use a MongoDB Manager App such as https://robomongo.org/
+
+#### NPM Modules
+The following NPM modules are required in package.json:
 
 * express
 * express-graphql
@@ -37,25 +41,27 @@ Install with:
 npm install
 ```
 
-## Running the project
+#### Run the project
 ```js
 npm start
 ```
 
+![CLI Commands](/ReadMe/runtheapp.gif)
 
-### GraphQLObjectType
-Each model has a GraphQLObjectType, you can add more...
-
-### Mongoose Schemea
-Contains a schema to let MongoDB know what the data structure is.
-
-We also set up some resolvers for GraphQL to work with to get data from our MongoDB
-
-### GraphQL Queries
-Set up queries to work with our resolvers in the Mongoose Schema
-
-## Doing stuff
+## Running GraphQL Mutations & Queries
 You can run these queries / mutations within GraphiQL, alternatively you can run them within a tool such as Postman. To do so ensure you POST the query / mutation in the body and set the content-type to GraphQL.
+
+#### Create a user
+```js
+mutation {
+  addUser( name:"Jeff Beck", email:"jeff@beck.net", tel:"0800") {
+    id,
+    name,
+    email,
+    tel
+  }
+}
+```
 
 #### Find a user
 Find the first user in the MongoDB, requesting just the name and email address
@@ -77,29 +83,28 @@ query {
   }
 }
 ```
-### GraphQL Mutations
-Set up our mutations to save / update with resolvers in our Mongoose Schema
 
-#### Create a user
-```js
-mutation {
-  addUser( name:"Jeff Beck", email:"jeff@beck.net", tel:"0800") {
-    id,
-    name,
-    email,
-    tel
-  }
-}
-```
+
+
 
 #### Update a user
 ```js
 mutation {
-  updateUser(id:"56e0919c2c4670ed23fe4a28", name:"Jeff Beck", email:"jeff@beck.net", tel:"0800 234 231") {
+  updateUser(id:"56e0919c2c4670ed23fe4a28", name:"Jeff The Beck", email:"jeff@beck.net", tel:"0800 234 231") {
     id
   }
 }
 ```
+
+## GraphQL Resolvers
+GraphQL doesn't care where your data is stored, in this case it's in a MongoDB.
+
+[userSchema.js](models/user/userSchema.js) uses a Mongoose Schemea and configures a number of exported functions for our GraphQL Resolvers to work with in order to load a user / list of users or create and update a user.
+
+## GraphQL Schema
+[userType.js](models/user/userType.js) creates a GraphQLObjectType describing the structure of our data model.
+
+[userMutations.js](models/user/userMutations.js) and [userQueries.js](models/user/userQueries.js) specify the operations available from GraphQL and link to our resolvers, in this case Mongoose operations that return a promise.
 
 # ToDo
 * Postman Images
