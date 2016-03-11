@@ -42,9 +42,18 @@ npm install
 ```
 
 #### Run the project
+
+##### Running in Development
+npm dev is configured with nodmon so that the server automatically restarts when code files are changes
+```js
+npm run dev
+```
+
+##### Running in Production
 ```js
 npm start
 ```
+npm prestart will run first, transpile the ES6 code and save to _dist_ folder. npm start will then run the code directly from the _dist_ folder
 
 ![CLI Commands](https://raw.githubusercontent.com/applification/graphql-express-mongodb/master/readme/runtheapp.gif)
 
@@ -84,9 +93,6 @@ query {
 }
 ```
 
-
-
-
 #### Update a user
 ```js
 mutation {
@@ -105,8 +111,3 @@ GraphQL doesn't care where your data is stored, in this case it's in a MongoDB.
 [userType.js](models/user/userType.js) creates a GraphQLObjectType describing the structure of our data model.
 
 [userMutations.js](models/user/userMutations.js) and [userQueries.js](models/user/userQueries.js) specify the operations available from GraphQL and link to our resolvers, in this case Mongoose operations that return a promise.
-
-# ToDo
-* Postman Images
-* GraphiQL Images
-* Create gif of the whole flow split screen
