@@ -106,9 +106,9 @@ mutation {
 ## GraphQL Resolvers
 GraphQL doesn't care where your data is stored, in this case it's in a MongoDB.
 
-[userSchema.js](models/user/userSchema.js) uses a Mongoose Schemea and configures a number of exported functions for our GraphQL Resolvers to work with in order to load a user / list of users or create and update a user.
+[userSchema.js](src/models/user/userSchema.js) uses a Mongoose Schemea and configures a number of exported functions for our GraphQL Resolvers to work with in order to load a user / list of users or create and update a user.
 
 ## GraphQL Schema
-[userType.js](models/user/userType.js) creates a GraphQLObjectType describing the structure of our data model.
+[userType.js](src/models/user/userType.js) creates a GraphQLObjectType describing the structure of our data model.
 
-[userMutations.js](models/user/userMutations.js) and [userQueries.js](models/user/userQueries.js) specify the operations available from GraphQL and link to our resolvers, in this case Mongoose operations that return a promise.
+[userMutations.js](src/models/user/userMutations.js) and [userQueries.js](src/models/user/userQueries.js) specify the operations available from GraphQL and link to our resolvers, in this case Mongoose operations that return a promise.
