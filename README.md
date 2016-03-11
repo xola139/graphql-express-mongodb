@@ -32,8 +32,9 @@ The following NPM modules are required in package.json:
 * express-graphql
 * graphql
 * mongoose
-* babel
-* babel-node
+* babel-cli
+* babel-preset-es2015
+* nodemon
 
 Install with:
 
