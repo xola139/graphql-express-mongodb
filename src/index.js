@@ -1,4 +1,4 @@
-// Import GraphQL and destructure for easy access
+l// Import GraphQL and destructure for easy access
 import {
   GraphQLObjectType,
   GraphQLSchema
@@ -18,6 +18,9 @@ import userQueries from './models/user/userQueries'
 
 // Import GraphQL Mutations
 import userMutations from './models/user/userMutations'
+
+
+var ULR_MONGO =  process.env.ULR_MONGO || 'twitter_access_token_secret';
 
 // Setup GraphQL RootQuery
 let RootQuery = new GraphQLObjectType({
@@ -48,7 +51,7 @@ let schema = new GraphQLSchema({
 })
 
 // Connect MongoDB with Mongoose
-mongoose.connect('mongodb://localhost/graphql-express-mongodb')
+mongoose.connect(ULR_MONGO)
 
 // Set up Express and integrate with our GraphQL Schema and configure to use graphiql
 var app = express()
