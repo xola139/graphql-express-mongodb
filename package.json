@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node src/index.js",
     "prestart": "babel src --out-dir dist",
-    "start": " node dist/index.js"
+    "start": "babel-node node dist/index.js"
   },
   "author": "Dave Hudson <dave@applification.net> (http://applification.net)",
   "license": "ISC",
