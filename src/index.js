@@ -56,7 +56,7 @@ mongoose.connect(ULR_MONGO)
 // Set up Express and integrate with our GraphQL Schema and configure to use graphiql
 var app = express()
 app.use('/graphql', graphqlHTTP({ schema: schema, graphiql: true }))
-app.listen('3000')
+//app.listen('3000')
 
 var status = {
   Express: {
@@ -64,7 +64,7 @@ var status = {
     "Port": 3000
   },
   "GraphiQL": {
-    "url": "http://localhost:3000/graphql"
+    "url": "https://warm-beyond-96255.herokuapp.com/graphql"
   }
 }
 console.dir(status, {depth: null, colors: true })
