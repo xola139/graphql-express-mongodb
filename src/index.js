@@ -1,8 +1,5 @@
-l// Import GraphQL and destructure for easy access
-import {
-  GraphQLObjectType,
-  GraphQLSchema
- } from 'graphql'
+// Import GraphQL and destructure for easy access
+import { GraphQLObjectType,GraphQLSchema } from 'graphql'
 
 // Import express server
 import express from 'express'
@@ -20,7 +17,7 @@ import userQueries from './models/user/userQueries'
 import userMutations from './models/user/userMutations'
 
 
-var ULR_MONGO =  process.env.ULR_MONGO || 'twitter_access_token_secret';
+var URL_MONGO =  process.env.URL_MONGO || 'localhost';
 
 // Setup GraphQL RootQuery
 let RootQuery = new GraphQLObjectType({
@@ -51,12 +48,12 @@ let schema = new GraphQLSchema({
 })
 
 // Connect MongoDB with Mongoose
-mongoose.connect(ULR_MONGO)
+mongoose.connect(URL_MONGO)
 
 // Set up Express and integrate with our GraphQL Schema and configure to use graphiql
 var app = express()
 app.use('/graphql', graphqlHTTP({ schema: schema, graphiql: true }))
-//app.listen('3000')
+app.listen(process.env.PORT || 3000, () => console.log("Listening to port 3000"))
 
 var status = {
   Express: {
@@ -64,7 +61,7 @@ var status = {
     "Port": 3000
   },
   "GraphiQL": {
-    "url": "https://warm-beyond-96255.herokuapp.com/graphql"
+    "url": "./graphql"
   }
 }
 console.dir(status, {depth: null, colors: true })
