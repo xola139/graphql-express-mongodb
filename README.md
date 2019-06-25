@@ -1,4 +1,4 @@
-# GraphQL + Express + MongoDB
+# GraphQL + Express + MongoDB + Deploy Heroku
 
 > A small project to illustrate using GraphQL with MongoDB in Express as simply as possible
 
@@ -112,3 +112,27 @@ GraphQL doesn't care where your data is stored, in this case it's in a MongoDB.
 [userType.js](src/models/user/userType.js) creates a GraphQLObjectType describing the structure of our data model.
 
 [userMutations.js](src/models/user/userMutations.js) and [userQueries.js](src/models/user/userQueries.js) specify the operations available from GraphQL and link to our resolvers, in this case Mongoose operations that return a promise.
+
+
+## Deploy Heroku
+Is considered you have install heroku cli so applie the steps into console CMD or some Shell 
+
+1. heroku login
+
+2. heroku create
+
+3. After create project should  to go panel Heroku and define te variable URL_MONGO with the value conection string your mongo db, look the next image
+![CLI Commands](https://github.com/xola139/graphql-express-mongodb/blob/master/readme/config_vars_heroku.PNG)
+
+4. git push heroku master
+
+When finished should to show some this
+
+
+-----> Node.js app detected
+
+-----> Launching... done
+
+       http://arcane-lowlands-8408.herokuapp.com deployed to Heroku
+
+copy the url of your console and paste in browser and test. ;)
